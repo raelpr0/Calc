@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
         if (valor1 != null && operador != null && valor2 != null) {
             Double resultado = realizarOperacao();
             if (resultado != null) {
-                tvResultado.setText(resultado.toString());
+                // Mantém a expressão e adiciona o resultado ao final
+                String expressaoCompleta = tvResultado.getText().toString() + " = " + resultado;
+                tvResultado.setText(expressaoCompleta);
                 valor1 = resultado; // Armazena o resultado para continuar a operação
                 operador = null; // Reseta o operador para evitar erros
             } else {
@@ -118,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
             tvResultado.setText(String.valueOf(resultado));
             valor1 = null; // Reseta valor1 após calcular o fatorial
         } else {
-            tvResultado.setText("Erro: Fatorial só para inteiros");
+            tvResultado.setText("Erro: Fatorial só para inteiros!");
         }
     }
 
